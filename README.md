@@ -6,7 +6,7 @@ the full physical design flow using OpenLane and the SkyWater 130nm PDK.
 ## Status
 - [x] Register file + testbench
 - [ ] ALU, decoder, control, branch logic
-- [ ] Single-cycle core
+- [x] Single-cycle core
 - [ ] 5-stage pipeline
 - [ ] OpenLane runs: timing, congestion, area tuning
 
