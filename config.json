@@ -1,0 +1,15 @@
+{
+    "DESIGN_NAME": "rv32i_core",
+    "VERILOG_FILES": [
+        "dir::src/rv32i_core.v",
+        "dir::src/regfile.v",
+        "dir::src/alu.v",
+        "dir::src/imm_gen.v",
+        "dir::src/control.v"
+    ],
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 16,
+    "FP_SIZING": "relative",
+    "FP_CORE_UTIL": 35,
+    "PL_TARGET_DENSITY": 0.45
+}
