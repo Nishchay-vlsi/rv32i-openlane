@@ -8,7 +8,7 @@
         "dir::src/control.v"
     ],
     "CLOCK_PORT": "clk",
-    "CLOCK_PERIOD": 16,
+    "CLOCK_PERIOD": 15,
     "FP_SIZING": "relative",
     "FP_CORE_UTIL": 35,
     "PL_TARGET_DENSITY": 0.45
