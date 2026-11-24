@@ -50,3 +50,7 @@ Icarus Verilog testbenches for the register file, ALU, decoder and full core. Th
 
 ## Tools
 Icarus Verilog, GTKWave, OpenLane, Sky130 PDK, Magic, KLayout
+
+## Layout (15 ns run)
+
+![RV32I core layout](layout.png)
