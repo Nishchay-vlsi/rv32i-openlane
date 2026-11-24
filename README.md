@@ -45,7 +45,7 @@ Icarus Verilog testbenches for the register file, ALU, decoder and full core. Th
 - [x] Single-cycle core
 - [x] OpenLane runs and frequency sweep
 - [ ] Fix antenna violations
-- [ ] 5-stage pipeline with hazard handling and forwarding
+- [x] 5-stage pipeline with hazard handling and forwarding
 - [ ] Pipelined core OpenLane run and comparison
 
 ## Tools
