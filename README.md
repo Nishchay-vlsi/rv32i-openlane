@@ -46,7 +46,7 @@ Icarus Verilog testbenches for the register file, ALU, decoder and full core. Th
 - [x] OpenLane runs and frequency sweep
 - [ ] Fix antenna violations
 - [x] 5-stage pipeline with hazard handling and forwarding
-- [ ] Pipelined core OpenLane run and comparison
+- [x] Pipelined core OpenLane run and comparison
 
 ## Tools
 Icarus Verilog, GTKWave, OpenLane, Sky130 PDK, Magic, KLayout
@@ -54,3 +54,21 @@ Icarus Verilog, GTKWave, OpenLane, Sky130 PDK, Magic, KLayout
 ## Layout (15 ns run)
 
 ![RV32I core layout](layout.png)
+
+## Single-cycle vs 5-stage pipelined (Sky130, OpenLane)
+
+Signoff timing is read from `reports/signoff/31-rcx_sta.summary.rpt`.
+
+| Core | Clock period | Frequency | Worst setup slack | Worst hold slack | DRC |
+|---|---|---|---|---|---|
+| Single-cycle RV32I | 15 ns | 66.7 MHz | +0.61 ns | +0.46 ns | Clean |
+| 5-stage pipelined RV32I | 10 ns | 100 MHz | +2.13 ns | +0.30 ns | Clean |
+| 5-stage pipelined RV32I | 8 ns | 125 MHz | +0.19 ns | +0.31 ns | Clean |
+
+The pipelined core closes timing at 8 ns, about 1.9x the clock frequency of the single-cycle core (15 ns).
+
+The single-cycle critical path ran imem_rdata -> decode -> regfile -> ALU -> dmem_addr in one cycle. Pipelining splits that into IF/ID/EX/MEM/WB stages, so each stage only has part of the path.
+
+Pipeline hazards handled in RTL: EX/MEM and WB forwarding, WB-to-ID bypass, a 1-cycle load-use stall, and branch/jump resolution in EX with a flush.
+
+Pipeline results are in `results_pipe/`.
